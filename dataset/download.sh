@@ -1,3 +1,7 @@
-!TODO: to be replace by the new download link
-wget --no-check-certificate https://drive.google.com/file/d/1bEoHXqUTuHDYdpGrB6p-VHV2HS81f0Pw/view?usp=sharing
-wget --no-check-certificate https://drive.google.com/file/d/1-0Uzz6QIkhEQv0UQvOJi1xwVUKGXSdi0/view?usp=sharing
+CONFIRM=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate "https://docs.google.com/uc?export=download&id=$1" -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')
+
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$CONFIRM&id=$1" -O $2
+
+rm -rf /tmp/cookies.txt
+
+
