@@ -46,4 +46,4 @@ def process_input(path, encoding='utf-8', use_densefeat=True):
     train_model_input = {name: train[name] for name in feature_names}
     test_model_input = {name: test[name] for name in feature_names}
 
-    return train_model_input, test_model_input
+    return linear_feature_columns, dnn_feature_columns, train_model_input, test_model_input
