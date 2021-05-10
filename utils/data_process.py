@@ -2,6 +2,7 @@ from io import StringIO
 
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
+from sklearn.model_selection import train_test_split
 
 from .inputs import SparseFeat, DenseFeat, get_feature_names
 
@@ -41,4 +42,8 @@ def process_input(path, encoding='utf-8', use_densefeat=True):
 
     feature_names = get_feature_names(linear_feature_columns + dnn_feature_columns)
 
-    return data, feature_names
+    train, test = train_test_split(data, test_size=0.2, random_state=2020)
+    train_model_input = {name: train[name] for name in feature_names}
+    test_model_input = {name: test[name] for name in feature_names}
+
+    return train_model_input, test_model_input
