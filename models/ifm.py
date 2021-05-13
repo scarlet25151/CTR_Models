@@ -1,8 +1,9 @@
 import torch
 import torch.nn as nn
 
+from utils.inputs import combined_dnn_input
+from utils import SparseFeat, VarLenSparseFeat
 from .basemodel import BaseModel
-from ..utils.inputs import combined_dnn_input, SparseFeat, VarLenSparseFeat
 from .layers import DNN
 from .fm import FM
 

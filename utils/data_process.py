@@ -4,7 +4,8 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from sklearn.model_selection import train_test_split
 
-from .inputs import SparseFeat, DenseFeat, get_feature_names
+from .inputs import get_feature_names
+from .features import SparseFeat, DenseFeat
 
 
 def process_input(path, encoding='utf-8', use_densefeat=True):

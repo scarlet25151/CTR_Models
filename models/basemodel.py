@@ -12,13 +12,11 @@ from sklearn.metrics import *
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-try:
-    from tensorflow.python.keras.callbacks import CallbackList, History
-except ImportError:
-    from tensorflow.python.keras._impl.keras.callbacks import CallbackList, History
+from tensorflow.python.keras.callbacks import CallbackList, History
 
-from ..utils import build_input_features, SparseFeat, DenseFeat, VarLenSparseFeat, get_varlen_pooling_list, \
+from utils import build_input_features, get_varlen_pooling_list, \
     create_embedding_matrix
+from utils import SparseFeat, VarLenSparseFeat, DenseFeat
 from .layers import PredictionLayer
 
 
