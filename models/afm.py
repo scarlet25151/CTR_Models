@@ -4,6 +4,7 @@ from .basemodel import BaseModel
 from .fm import FM
 from .layers import AFMLayer
 
+
 class AFM(BaseModel):
     """Instantiates the Attentional Factorization Machine architecture.
     :param linear_feature_columns: An iterable containing all the features used by linear part of the model.
@@ -54,4 +55,3 @@ class AFM(BaseModel):
         y_pred = self.out(logit)
 
         return y_pred
-

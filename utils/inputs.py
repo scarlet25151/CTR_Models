@@ -10,9 +10,6 @@ from .sequences import SequencePoolingLayer
 
 DEFAULT_GROUP_NAME = "default_group"
 
-def Hello_word():
-    print("hello word")
-    
 def concat_fun(inputs, axis=-1):
     if len(inputs) == 1:
         return inputs[0]

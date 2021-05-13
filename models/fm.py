@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+
 class FM(nn.Module):
     """Factorization Machine models pairwise (order-2) feature interactions
      without linear term and bias.

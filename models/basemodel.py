@@ -1,4 +1,4 @@
-  # -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 from __future__ import print_function
 
 import time
@@ -13,14 +13,13 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 try:
-    from tensorflow.python.keras.callbacks import CallbackList,History
+    from tensorflow.python.keras.callbacks import CallbackList, History
 except ImportError:
-    from tensorflow.python.keras._impl.keras.callbacks import CallbackList,History
+    from tensorflow.python.keras._impl.keras.callbacks import CallbackList, History
 
 from ..utils import build_input_features, SparseFeat, DenseFeat, VarLenSparseFeat, get_varlen_pooling_list, \
     create_embedding_matrix
 from .layers import PredictionLayer
-
 
 
 def slice_arrays(arrays, start=None, stop=None):
@@ -70,6 +69,7 @@ def slice_arrays(arrays, start=None, stop=None):
             return arrays[start:stop]
         else:
             return [None]
+
 
 class Linear(nn.Module):
     def __init__(self, feature_columns, feature_index, init_std=0.0001, device='cpu'):
@@ -532,4 +532,3 @@ class BaseModel(nn.Module):
         if len(embedding_size_set) > 1:
             raise ValueError("embedding_dim of SparseFeat and VarlenSparseFeat must be same in this model!")
         return list(embedding_size_set)[0]
-
